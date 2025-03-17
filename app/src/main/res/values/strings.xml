@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Akash Jewellers</string>
+
+
+    <string name="Developed">Developed by Harshit Kushmakar </string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="enter_mobile_number">PHONE NUMBER</string>
+    <string name="Mobile">Mobile</string>
+    <string name="_91">+91 |</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="or">OR</string>
+    <string name="sign_in_sign_up">Sign in / Sign up</string>
+    <string name="continue_with_email">Continue with Email</string>
+    <string name="sign_up_or_sign_in_description">Sign up or Sign in to get updated about realtime gold,silver prices!</string>
+    <string name="email_icon">Email icon</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="verify">VERIFY</string>
+    <string name="change">Change</string>
+    <string name="we_have_sent_6_digit_otp_to">We have sent 6 digit OTP to</string>
+    <string name="back">Back</string>
+    <string name="waiting_for_otp_60_sec">Waiting for OTP ... 60 sec</string>
+    <string name="sign_in">Sign in</string>
+    <string name="enter_your_user_name">ENTER YOUR NAME</string>
+    <string name="let_me_in">Let me in</string>
+
+</resources>
