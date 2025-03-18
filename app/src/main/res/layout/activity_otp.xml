@@ -213,15 +213,30 @@
 
 
     <!-- Golden Verify Button -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnVerify"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/verify"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:background="@drawable/golden_button_background"
-        android:padding="16dp"
-        android:layout_marginTop="36dp"/>
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnVerify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/verify"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:background="@drawable/golden_button_background"
+            android:padding="16dp"
+            android:layout_marginTop="36dp"/>
+
+        <ProgressBar
+            android:layout_gravity="center"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:visibility="gone">
+
+        </ProgressBar>
+
+    </FrameLayout>
+
 
 </LinearLayout>
