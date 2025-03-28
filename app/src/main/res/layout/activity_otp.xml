@@ -229,6 +229,7 @@
             android:layout_marginTop="36dp"/>
 
         <ProgressBar
+            android:id="@+id/progressbar_verify"
             android:layout_gravity="center"
             android:layout_width="35dp"
             android:layout_height="35dp"
