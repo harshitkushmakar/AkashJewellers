@@ -6,15 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OtpActivity"
+    android:padding="25sp"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:layout_margin="15dp"
-   >
+    android:layout_margin="15sp">
 
     <ImageButton
         android:id="@+id/btnBack"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="48sp"
+        android:layout_height="48sp"
         android:src="@drawable/ic_back_arrow"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/back" />
@@ -27,7 +26,7 @@
         android:textSize="32sp"
         android:textStyle="bold"
         android:textColor="#008080"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="24sp" />
 
     <!-- Description Text -->
     <TextView
@@ -36,7 +35,7 @@
         android:text="@string/sign_up_or_sign_in_description"
         android:textSize="18sp"
         android:textColor="#666666"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16sp" />
 
     <!-- Phone Number Section -->
     <TextView
@@ -46,14 +45,14 @@
         android:textStyle="bold"
         android:textSize="16sp"
         android:textColor="#008080"
-        android:layout_marginTop="32dp" />
+        android:layout_marginTop="32sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/phoneNumber_otp"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="8sp">
 
         <TextView
             android:id="@+id/text_mobile_number"
@@ -63,8 +62,8 @@
             android:textStyle="bold" />
 
         <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0sp"
+            android:layout_height="0sp"
             android:layout_weight="1" />
 
         <TextView
@@ -83,22 +82,23 @@
         android:text="@string/we_have_sent_6_digit_otp_to"
         android:textSize="16sp"
         android:textColor="#666666"
-        android:layout_marginTop="32dp" />
+        android:layout_marginTop="32sp" />
 
     <!-- OTP Input Boxes -->
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="16sp"
         android:gravity="center">
 
         <!-- 6 OTP Input Boxes with Golden Border -->
         <EditText
             android:id="@+id/otp_number_1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="4dp"
+            android:layout_width="45sp"
+            android:layout_height="45sp"
+            android:layout_margin="4sp"
             android:background="@drawable/golden_border_box"
             android:inputType="number"
             android:maxLength="1"
@@ -111,9 +111,9 @@
 
         <EditText
             android:id="@+id/otp_number_2"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="4dp"
+            android:layout_width="45sp"
+            android:layout_height="45sp"
+            android:layout_margin="4sp"
             android:background="@drawable/golden_border_box"
             android:inputType="number"
             android:maxLength="1"
@@ -126,9 +126,9 @@
 
         <EditText
             android:id="@+id/otp_number_3"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="4dp"
+            android:layout_width="45sp"
+            android:layout_height="45sp"
+            android:layout_margin="4sp"
             android:background="@drawable/golden_border_box"
             android:inputType="number"
             android:textColor="@color/black"
@@ -140,9 +140,9 @@
 
         <EditText
             android:id="@+id/otp_number_4"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="4dp"
+            android:layout_width="45sp"
+            android:layout_height="45sp"
+            android:layout_margin="4sp"
             android:background="@drawable/golden_border_box"
             android:textColor="@color/black"
             android:inputType="number"
@@ -154,9 +154,9 @@
 
         <EditText
             android:id="@+id/otp_number_5"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="4dp"
+            android:layout_width="45sp"
+            android:layout_height="45sp"
+            android:layout_margin="4sp"
             android:background="@drawable/golden_border_box"
             android:inputType="number"
             android:maxLength="1"
@@ -168,9 +168,9 @@
 
         <EditText
             android:id="@+id/otp_number_6"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="4dp"
+            android:layout_width="45sp"
+            android:layout_height="45sp"
+            android:layout_margin="4sp"
             android:textColor="@color/black"
             android:background="@drawable/golden_border_box"
             android:inputType="number"
@@ -186,7 +186,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16sp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -197,8 +197,8 @@
             android:textColor="#666666" />
 
         <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0sp"
+            android:layout_height="0sp"
             android:layout_weight="1" />
 
         <TextView
@@ -225,14 +225,14 @@
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:background="@drawable/golden_button_background"
-            android:padding="16dp"
-            android:layout_marginTop="36dp"/>
+            android:padding="16sp"
+            android:layout_marginTop="36sp"/>
 
         <ProgressBar
             android:id="@+id/progressbar_verify"
             android:layout_gravity="center"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
             android:visibility="gone">
 
         </ProgressBar>

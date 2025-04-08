@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "229899617663",
+    "firebase_url": "https://akash-jewllers-default-rtdb.firebaseio.com",
+    "project_id": "akash-jewllers",
+    "storage_bucket": "akash-jewllers.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229899617663:android:9127ae900eb9211069064a",
+        "android_client_info": {
+          "package_name": "com.example.akashjewller"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYQ3PcKjIulCjTbjKcEa-sOJLGguylyr4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

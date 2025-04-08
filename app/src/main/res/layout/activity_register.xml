@@ -26,7 +26,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/register_name"
         android:textColor="#008080"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,6 +39,7 @@
             android:id="@+id/name_register_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:background="@null"
             android:textSize="20sp" />
     </LinearLayout>
@@ -55,7 +56,7 @@
 
         android:text="@string/phone_number_register"
         android:textColor="#008080"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
+            android:textColor="@color/black"
             android:background="@null"
             android:textSize="20sp" />
     </LinearLayout>
@@ -83,7 +85,7 @@
         android:text="@string/email_id"
         android:layout_marginBottom="8dp"
         android:textColor="#008080"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -97,6 +99,7 @@
             android:id="@+id/email_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:background="@null"
             android:textSize="20sp" />
     </LinearLayout>
@@ -113,7 +116,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/password"
         android:textColor="#008080"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -127,6 +130,7 @@
             android:id="@+id/password_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:background="@null"
             android:textSize="20sp" />
     </LinearLayout>

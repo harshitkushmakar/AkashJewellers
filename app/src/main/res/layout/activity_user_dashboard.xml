@@ -1,133 +1,370 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".UserDashboardActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/akashjeweller">
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0sp"
+        android:layout_height="0sp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    </ImageView>
-
-
-    <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:background="@drawable/golden_border_box"
-
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="5dp"
-            android:contentDescription="@string/email_icon"
-            android:src="@drawable/email" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="@string/gold"
-            android:textColor="#212529"
-            android:textSize="25sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:background="@drawable/golden_border_box"
+            android:id="@+id/main_layout">
 
-        android:orientation="horizontal">
+            <!-- Banner Image -->
+            <ImageView
+                android:id="@+id/location_view"
+                android:layout_width="0sp"
+                android:layout_height="200sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/goldbanner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="5dp"
-            android:contentDescription="@string/email_icon"
-            android:src="@drawable/email" />
+            <!-- Gold Section -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/gold_card"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="60sp"
+                android:layout_marginEnd="16sp"
+                android:background="@drawable/rounded_button_backgroun"
+                app:cardCornerRadius="20sp"
+                app:cardElevation="4sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/location_view">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="@string/gold"
-            android:textColor="#212529"
-            android:textSize="25sp" />
-    </LinearLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/off_white"
+                    android:padding="10sp">
 
-    <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:background="@drawable/golden_border_box"
+                    <ImageView
+                        android:id="@+id/gold_icon"
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        android:src="@drawable/gold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/gold_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10sp"
+                        android:text="@string/gold"
+                        android:textColor="#212529"
+                        android:textSize="23sp"
+                        app:layout_constraintStart_toEndOf="@+id/gold_icon"
+                        app:layout_constraintTop_toTopOf="@+id/gold_icon" />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="5dp"
-            android:contentDescription="@string/email_icon"
-            android:src="@drawable/email" />
+                    <TextView
+                        android:id="@+id/gold_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cash"
+                        android:textColor="#212529"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toStartOf="@+id/gold_text"
+                        app:layout_constraintTop_toBottomOf="@+id/gold_text" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="@string/gold"
-            android:textColor="#212529"
-            android:textSize="25sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:background="@drawable/golden_border_box"
+                    <TextView
+                        android:id="@+id/gold_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹ 90000"
+                        android:textColor="#212529"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/gold_text" />
 
-        android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/gold_update_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Updated: 2 April 10:00 AM"
+                        android:textColor="#6c757d"
+                        android:textSize="11sp"
+                        app:layout_constraintEnd_toEndOf="@+id/gold_price"
+                        app:layout_constraintTop_toBottomOf="@+id/gold_price" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="5dp"
-            android:contentDescription="@string/email_icon"
-            android:src="@drawable/email" />
+            <!-- Silver Section -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/silver_card"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="16sp"
+                android:layout_marginEnd="20sp"
+                android:background="@drawable/rounded_button_backgroun"
+                app:cardCornerRadius="15sp"
+                app:cardElevation="4sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gold_card">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="@string/gold"
-            android:textColor="#212529"
-            android:textSize="25sp" />
-    </LinearLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:background="@color/off_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10sp">
 
+                    <ImageView
+                        android:id="@+id/silver_icon"
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        android:src="@drawable/silver"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/silver_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10sp"
+                        android:text="Silver"
+                        android:textColor="#212529"
+                        android:textSize="23sp"
+                        app:layout_constraintStart_toEndOf="@+id/silver_icon"
+                        app:layout_constraintTop_toTopOf="@+id/silver_icon" />
+
+                    <TextView
+                        android:id="@+id/silver_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cash"
+                        android:textColor="#212529"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toStartOf="@+id/silver_text"
+                        app:layout_constraintTop_toBottomOf="@+id/silver_text" />
+
+                    <TextView
+                        android:id="@+id/silver_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹ 90000"
+                        android:textColor="#212529"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/silver_text" />
+
+                    <TextView
+                        android:id="@+id/silver_update_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Updated: 2 April 10:00 AM"
+                        android:textColor="#6c757d"
+                        android:textSize="11sp"
+                        app:layout_constraintEnd_toEndOf="@+id/silver_price"
+                        app:layout_constraintTop_toBottomOf="@+id/silver_price" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Silver UPI Section -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/silver_upi_card"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="16sp"
+                android:layout_marginEnd="16sp"
+                android:background="@drawable/rounded_button_backgroun"
+                app:cardCornerRadius="20sp"
+                app:cardElevation="4sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/silver_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:background="@color/off_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10sp">
+
+                    <ImageView
+                        android:id="@+id/silver_upi_icon"
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        android:src="@drawable/upi"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/silver_upi_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10sp"
+                        android:text="@string/silver_upi"
+                        android:textColor="#212529"
+                        android:textSize="23sp"
+                        app:layout_constraintStart_toEndOf="@+id/silver_upi_icon"
+                        app:layout_constraintTop_toTopOf="@+id/silver_upi_icon" />
+
+                    <TextView
+                        android:id="@+id/silver_upi_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bank/UPI inc. GST"
+                        android:textColor="#212529"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="@+id/silver_upi_text"
+                        app:layout_constraintTop_toBottomOf="@+id/silver_upi_text" />
+
+                    <TextView
+                        android:id="@+id/silver_upi_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹ 90000"
+                        android:textColor="#212529"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/silver_upi_text" />
+
+                    <TextView
+                        android:id="@+id/silver_upi_update_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Updated: 2 April 10:00 AM"
+                        android:textColor="#6c757d"
+                        android:textSize="11sp"
+                        app:layout_constraintEnd_toEndOf="@+id/silver_upi_price"
+                        app:layout_constraintTop_toBottomOf="@+id/silver_upi_price" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Gold UPI Section -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/gold_upi_card"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16sp"
+                android:layout_marginTop="16sp"
+                android:layout_marginEnd="16sp"
+                android:background="@drawable/rounded_button_backgroun"
+                app:cardCornerRadius="20sp"
+                app:cardElevation="4sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/silver_upi_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:background="@color/off_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10sp">
+
+                    <ImageView
+                        android:id="@+id/gold_upi_icon"
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        android:src="@drawable/upi"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/gold_upi_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10sp"
+                        android:text="@string/gold_upi"
+                        android:textColor="#212529"
+                        android:textSize="23sp"
+                        app:layout_constraintStart_toEndOf="@+id/gold_upi_icon"
+                        app:layout_constraintTop_toTopOf="@+id/gold_upi_icon" />
+
+                    <TextView
+                        android:id="@+id/gold_upi_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bank/UPI inc. GST"
+                        android:textColor="#212529"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="@+id/gold_upi_text"
+                        app:layout_constraintTop_toBottomOf="@+id/gold_upi_text" />
+
+                    <TextView
+                        android:id="@+id/gold_upi_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹ 90000"
+                        android:textColor="#212529"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/gold_upi_text" />
+
+                    <TextView
+                        android:id="@+id/gold_upi_update_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Updated: 2 April 10:00 AM"
+                        android:textColor="#6c757d"
+                        android:textSize="11sp"
+                        app:layout_constraintEnd_toEndOf="@+id/gold_upi_price"
+                        app:layout_constraintTop_toBottomOf="@+id/gold_upi_price" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Disclaimer -->
+            <TextView
+                android:id="@+id/disclaimer"
+                android:layout_width="430sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32sp"
+                android:layout_marginTop="70sp"
+                android:layout_marginEnd="32sp"
+                android:layout_marginBottom="16sp"
+                android:gravity="center"
+                android:minHeight="100sp"
+                android:text="@string/disclaimer_in_dashboard"
+                android:textColor="#ADB5BD"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gold_upi_card" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Yellow divider -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0sp"
+        android:layout_height="1sp"
+        android:background="#DAA520"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0sp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="@string/disclaimer_in_dashboard"
-        android:textColor="#ADB5BD">
+        android:background="@android:color/white"
+        android:elevation="0sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
-    </TextView>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

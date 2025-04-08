@@ -24,14 +24,17 @@
     <string name="let_me_in">Let me in</string>
     <string name="login">LOGIN</string>
     <string name="email_id">EMAIL ID</string>
-    <string name="create_new_account">Don\'t Have an Account? SIGNUP</string>
+    <string name="create_new_account">REGISTER</string>
     <string name="password">PASSWORD</string>
     <string name="register">SIGN UP</string>
-    <string name="register_name">Name</string>
+    <string name="register_name">NAME</string>
     <string name="phone_number_register">PHONE NUMBER</string>
     <string name="forgot_password">Forgot Password ?</string>
     <string name="already_have_an_account_login">Already Have an Account? LOGIN</string>
     <string name="gold">Gold</string>
-    <string name="disclaimer_in_dashboard">*Above displayed data is for information purpose ony and hence can\'t be used for legal purpose or doing any sort of of trnascation</string>
+    <string name="disclaimer_in_dashboard">*Above displayed data is for information purpose only and hence can\'t be used for legal purpose or doing any sort of transaction</string>
+    <string name="silver">Silver</string>
+    <string name="silver_upi">Silver(RTGS)</string>
+    <string name="gold_upi">Gold(RTGS)</string>
 
 </resources>

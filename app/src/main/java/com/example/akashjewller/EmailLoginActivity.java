@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -20,18 +19,18 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.Objects;
 
 public class EmailLoginActivity extends AppCompatActivity {
 
-    TextView createNewAccount;
+    AppCompatButton createNewAccount;
     AppCompatButton Login;
     EditText LoginEmail;
     EditText LoginPassword;
     TextView ForgotPassword;
+
+    // Define a constant for the admin login identifier (use a specific email or username)
+    private static final String ADMIN_EMAIL_IDENTIFIER = "admin"; // Or "admin@yourapp.com", etc.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +52,9 @@ public class EmailLoginActivity extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Use logical OR (||) instead of bitwise OR (|)
+                // Use logical AND (&&) - both must be valid
                 if (validateEmail() && validatePassword()) {
-                    checkUser();
+                    checkUserOrAdmin(); // Renamed the method for clarity
                 }
             }
         });
@@ -70,7 +69,7 @@ public class EmailLoginActivity extends AppCompatActivity {
     }
 
     public boolean validateEmail() {
-        String val = LoginEmail.getText().toString();
+        String val = LoginEmail.getText().toString().trim(); // Trim whitespace
         if (val.isEmpty()) {
             LoginEmail.setError("Email cannot be Empty");
             return false;
@@ -81,7 +80,7 @@ public class EmailLoginActivity extends AppCompatActivity {
     }
 
     public boolean validatePassword() {
-        String val = LoginPassword.getText().toString();
+        String val = LoginPassword.getText().toString().trim(); // Trim whitespace
         if (val.isEmpty()) {
             LoginPassword.setError("Password cannot be Empty");
             return false;
@@ -91,38 +90,96 @@ public class EmailLoginActivity extends AppCompatActivity {
         }
     }
 
-    public void checkUser() {
-        String userEmail = LoginEmail.getText().toString().trim();
-        String userPassword = LoginPassword.getText().toString().trim();
+    public void checkUserOrAdmin() {
+        String enteredEmail = LoginEmail.getText().toString().trim();
+        String enteredPassword = LoginPassword.getText().toString().trim();
 
+        // Check if the entered email matches the admin identifier
+        if (enteredEmail.equalsIgnoreCase(ADMIN_EMAIL_IDENTIFIER)) {
+            // Attempt Admin Login
+            checkAdminCredentials(enteredPassword);
+        } else {
+            // Attempt Regular User Login
+            checkRegularUser(enteredEmail, enteredPassword);
+        }
+    }
+
+    private void checkAdminCredentials(String enteredPassword) {
+        // Path to your admin password in Firebase Realtime Database
+        DatabaseReference adminRef = FirebaseDatabase.getInstance().getReference("admin_credentials").child("password");
+
+        adminRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String storedAdminPassword = snapshot.getValue(String.class);
+                    if (storedAdminPassword != null && storedAdminPassword.equals(enteredPassword)) {
+                        // Admin Password Correct
+                        Toast.makeText(EmailLoginActivity.this, "Admin Login Successful", Toast.LENGTH_SHORT).show();
+                        // --- IMPORTANT: Replace with your actual Admin Dashboard Activity ---
+                        Intent intent = new Intent(EmailLoginActivity.this, AdminDashboardActivity.class);
+                        // --------------------------------------------------------------------
+                        startActivity(intent);
+                        finish(); // Close the login activity
+                    } else {
+                        // Incorrect Admin Password
+                        LoginPassword.setError("Incorrect Admin Password");
+                        LoginPassword.requestFocus();
+                        Toast.makeText(EmailLoginActivity.this, "Admin Login Failed", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    // Admin password node doesn't exist in DB
+                    Toast.makeText(EmailLoginActivity.this, "Admin configuration error.", Toast.LENGTH_SHORT).show();
+                    LoginPassword.setError("Admin login unavailable"); // Inform user
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(EmailLoginActivity.this, "Database Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    // --- This is your original user checking logic, now in its own method ---
+    private void checkRegularUser(String userEmail, String userPassword) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
 
         // Query to find users matching the email
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+        // Using orderByChild("email").equalTo(userEmail) is more efficient if you have many users
+        reference.orderByChild("email").equalTo(userEmail).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                boolean isUserFound = false;
-                for (DataSnapshot userSnapshot : snapshot.getChildren()) {
-                    UserClass user = userSnapshot.getValue(UserClass.class);
+                if (snapshot.exists()) {
+                    // Since email should be unique, we expect at most one result.
+                    // Iterate just in case, but typically the first child is the one.
+                    for (DataSnapshot userSnapshot : snapshot.getChildren()) {
+                        UserClass user = userSnapshot.getValue(UserClass.class);
 
-                    if (user != null && user.getEmail().equals(userEmail)) {
-                        isUserFound = true;
-                        // Correct password comparison
-                        if (user.getPassword().equals(userPassword)) {
-                            Toast.makeText(EmailLoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(EmailLoginActivity.this, UserDashboardActivity.class);
-                            startActivity(intent);
-                            finish(); // Close the login activity
-                            return;
-                        } else {
-                            LoginPassword.setError("Incorrect Password");
-                            LoginPassword.requestFocus();
-                            return;
+                        // Double check user and email just to be safe, though query should ensure it
+                        if (user != null && user.getEmail().equals(userEmail)) {
+                            // Correct password comparison
+                            if (user.getPassword().equals(userPassword)) {
+                                Toast.makeText(EmailLoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                // --- IMPORTANT: Replace with your actual User Dashboard Activity ---
+                                Intent intent = new Intent(EmailLoginActivity.this, UserDashboardActivity.class);
+                                // -----------------------------------------------------------------
+                                startActivity(intent);
+                                finish(); // Close the login activity
+                                return; // Exit after successful login
+                            } else {
+                                LoginPassword.setError("Incorrect Password");
+                                LoginPassword.requestFocus();
+                                return; // Exit after finding user but wrong password
+                            }
                         }
                     }
-                }
+                    // If loop finishes without finding a matching user object (shouldn't happen with query)
+                    LoginEmail.setError("Error retrieving user data.");
 
-                if (!isUserFound) {
+                } else {
+                    // No user found with this email
                     LoginEmail.setError("User not found");
                     LoginEmail.requestFocus();
                 }
@@ -134,4 +191,36 @@ public class EmailLoginActivity extends AppCompatActivity {
             }
         });
     }
+    // --- End of original user checking logic ---
+
+    // --- Placeholder for UserClass ---
+    // Ensure you have this class defined correctly
+    public static class UserClass {
+        public String email;
+        public String password;
+        public String name; // Add other fields if they exist in your DB
+
+        public UserClass() {
+            // Default constructor required for calls to DataSnapshot.getValue(UserClass.class)
+        }
+
+        public UserClass(String name, String email, String password) {
+            this.name = name;
+            this.email = email;
+            this.password = password;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+    // --- End of Placeholder ---
 }

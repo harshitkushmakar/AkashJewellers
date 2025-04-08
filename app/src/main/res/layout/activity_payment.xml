@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PaymentActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- UNION Bank Card -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/union_bank_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button_backgroun"
+                android:padding="16dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/union_bank_logo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/unionbank"
+                    android:contentDescription="UNION Bank Logo"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Account Name Row -->
+                <TextView
+                    android:id="@+id/union_ac_name_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="A/c Name"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/union_bank_logo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/union_ac_name_value"
+                    app:layout_constraintWidth_percent="0.4" />
+
+                <TextView
+                    android:id="@+id/union_ac_name_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="AKASH JEWELLERS"
+                    android:textAlignment="textEnd"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="@id/union_ac_name_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/union_ac_name_label"
+                    app:layout_constraintWidth_percent="0.6" />
+
+                <View
+                    android:id="@+id/union_divider1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"
+                    app:layout_constraintTop_toBottomOf="@id/union_ac_name_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Account Number Row -->
+                <TextView
+                    android:id="@+id/union_ac_number_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="A/c Number"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/union_divider1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/union_ac_number_value"
+                    app:layout_constraintWidth_percent="0.4" />
+
+                <TextView
+                    android:id="@+id/union_ac_number_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="587301010050089"
+                    android:textAlignment="textEnd"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="@id/union_ac_number_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/union_ac_number_label"
+                    app:layout_constraintWidth_percent="0.6" />
+
+                <View
+                    android:id="@+id/union_divider2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"
+                    app:layout_constraintTop_toBottomOf="@id/union_ac_number_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- IFSC Row -->
+                <TextView
+                    android:id="@+id/union_ifsc_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="IFSC"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/union_divider2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/union_ifsc_value"
+                    app:layout_constraintWidth_percent="0.4" />
+
+                <TextView
+                    android:id="@+id/union_ifsc_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="UBI"
+                    android:textAlignment="textEnd"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="@id/union_ifsc_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/union_ifsc_label"
+                    app:layout_constraintWidth_percent="0.6" />
+
+                <View
+                    android:id="@+id/union_divider3"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"
+                    app:layout_constraintTop_toBottomOf="@id/union_ifsc_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Branch Row -->
+                <TextView
+                    android:id="@+id/union_branch_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Branch"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/union_divider3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/union_branch_value"
+                    app:layout_constraintWidth_percent="0.4" />
+
+                <TextView
+                    android:id="@+id/union_branch_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Rathyatra"
+                    android:textAlignment="textEnd"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="@id/union_branch_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/union_branch_label"
+                    app:layout_constraintWidth_percent="0.6" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- SBI Card -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sbi_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button_backgroun"
+                android:padding="16dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/union_bank_card">
+
+                <ImageView
+                    android:id="@+id/sbi_logo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/sbi"
+                    android:contentDescription="SBI Bank Logo"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Account Name Row -->
+                <TextView
+                    android:id="@+id/sbi_ac_name_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="A/c Name"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/sbi_logo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/sbi_ac_name_value"
+                    app:layout_constraintWidth_percent="0.4" />
+
+                <TextView
+                    android:id="@+id/sbi_ac_name_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="AMAN VERMA"
+                    android:textAlignment="textEnd"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="@id/sbi_ac_name_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/sbi_ac_name_label"
+                    app:layout_constraintWidth_percent="0.6" />
+
+                <View
+                    android:id="@+id/sbi_divider1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"
+                    app:layout_constraintTop_toBottomOf="@id/sbi_ac_name_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Account Number Row -->
+                <TextView
+                    android:id="@+id/sbi_ac_number_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="A/c Number"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/sbi_divider1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/sbi_ac_number_value"
+                    app:layout_constraintWidth_percent="0.4" />
+
+                <TextView
+                    android:id="@+id/sbi_ac_number_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="9999 959844 6630"
+                    android:textAlignment="textEnd"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="@id/sbi_ac_number_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/sbi_ac_number_label"
+                    app:layout_constraintWidth_percent="0.6" />
+
+                <View
+                    android:id="@+id/sbi_divider2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"
+                    app:layout_constraintTop_toBottomOf="@id/sbi_ac_number_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- IFSC Row -->
+                <TextView
+                    android:id="@+id/sbi_ifsc_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="IFSC"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/sbi_divider2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/sbi_ifsc_value"
+                    app:layout_constraintWidth_percent="0.4" />
+
+                <TextView
+                    android:id="@+id/sbi_ifsc_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="HDFC00 00220"
+                    android:textAlignment="textEnd"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="@id/sbi_ifsc_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/sbi_ifsc_label"
+                    app:layout_constraintWidth_percent="0.6" />
+
+                <View
+                    android:id="@+id/sbi_divider3"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"
+                    app:layout_constraintTop_toBottomOf="@id/sbi_ifsc_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Branch Row -->
+                <TextView
+                    android:id="@+id/sbi_branch_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Branch"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/sbi_divider3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/sbi_branch_value"
+                    app:layout_constraintWidth_percent="0.4" />
+
+                <TextView
+                    android:id="@+id/sbi_branch_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Rathyatra"
+                    android:textAlignment="textEnd"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="@id/sbi_branch_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/sbi_branch_label"
+                    app:layout_constraintWidth_percent="0.6" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- QR Method -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/qr_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button_backgroun"
+                android:padding="16dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/sbi_card">
+
+                <ImageView
+                    android:id="@+id/payment_logo"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/paymentslogo"
+                    android:contentDescription="Payment Logo"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <ImageView
+                    android:id="@+id/qr_code"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:src="@drawable/qrcode"
+                    android:contentDescription="QR Code"
+                    app:layout_constraintTop_toBottomOf="@id/payment_logo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/payment_instruction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pay to Mobile Number using PhonePe or Google Pay App"
+                    android:textAlignment="center"
+                    android:textColor="#4169E1"
+                    android:textSize="12sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/qr_code"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/mobile_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7542965804"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/payment_instruction"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:elevation="0sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
