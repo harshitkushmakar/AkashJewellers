@@ -6,7 +6,6 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="18dp"
     android:fillViewport="true"
     tools:context=".AdminDashboardActivity">
     <LinearLayout
@@ -17,43 +16,15 @@
         android:layout_marginTop="50dp">
 
 
-        <!-- Editable timestamp -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="24dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Last Updated: "
-                android:textColor="#666666"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/timestampEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=" April 8, 2025 10:30 AM"
-               android:textColor="@color/black"
-                android:textSize="16sp"
-                android:background="@null" />
-        </LinearLayout>
 
         <!-- Gold Card -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:elevation="4dp">
-
-            <LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:background="@drawable/golden_border_box">
+                android:background="@drawable/golden_admin_boundry">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -73,7 +44,7 @@
                         android:layout_width="wrap_content"
                         android:textColor="@color/black"
                         android:layout_height="wrap_content"
-                        android:text="Current Price: $"
+                        android:text="Current Price: ₹"
                         android:textSize="16sp" />
 
                     <EditText
@@ -81,7 +52,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="2,345.67"
                         android:inputType="numberDecimal"
                         android:textColor="#333333"
                         android:textSize="18sp"
@@ -91,21 +61,18 @@
 
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+
 
         <!-- Silver Card -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:elevation="4dp">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:background="@drawable/golden_border_box">
+                android:background="@drawable/golden_admin_boundry">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -125,7 +92,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Current Price: $"
+                        android:text="Current Price: ₹"
                         android:textSize="16sp" />
 
                     <EditText
@@ -133,7 +100,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="31.25"
                         android:inputType="numberDecimal"
                         android:textColor="#333333"
                         android:textSize="18sp"
@@ -142,21 +108,18 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+
 
         <!-- Gold RTGS Card -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:elevation="4dp">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="15dp"
                 android:padding="16dp"
-                android:background="@drawable/golden_border_box">
+                android:background="@drawable/golden_admin_boundry">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -176,7 +139,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Current Price: $"
+                        android:text="Current Price: ₹"
                         android:textSize="16sp" />
 
                     <EditText
@@ -184,7 +147,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="2,347.85"
                         android:inputType="numberDecimal"
                         android:textColor="#333333"
                         android:textSize="18sp"
@@ -193,7 +155,7 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+
 
         <!-- Silver RTGS Card -->
 
@@ -202,8 +164,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="15dp"
                 android:padding="16dp"
-                android:background="@drawable/golden_border_box">
+                android:background="@drawable/golden_admin_boundry">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -223,7 +186,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Current Price: $"
+                        android:text="Current Price: ₹"
                         android:textSize="16sp" />
 
                     <EditText
@@ -231,7 +194,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="31.42"
                         android:inputType="numberDecimal"
                         android:textColor="#333333"
                         android:textSize="18sp"
@@ -241,25 +203,48 @@
 
 
             </LinearLayout>
+        <!-- Editable timestamp -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Updated: "
+                android:textColor="#666666"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/timestampEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:background="@null" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="15dp"
+            android:paddingTop="30dp"
             android:layout_marginTop="8dp">
 
             <Button
                 android:id="@+id/currentTimeButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
                 android:layout_weight="1"
-                android:text="Set Current Time"
-                android:textColor="#FFFFFF"
                 android:background="#4CAF50"
                 android:padding="12dp"
-                android:layout_marginEnd="4dp"/>
+                android:text="Set Current Time"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/saveButton"

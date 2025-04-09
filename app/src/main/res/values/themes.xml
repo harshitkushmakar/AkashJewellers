@@ -1,8 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme -->
     <style name="Base.Theme.AkashJewller" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Set the background color to white -->
         <item name="android:windowBackground">@color/white</item>
+
+        <!-- Make the status bar icons dark for better contrast -->
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Optional: Set the status bar color explicitly -->
+        <item name="android:statusBarColor">@color/black</item>
     </style>
 
+    <!-- Apply the base theme -->
     <style name="Theme.AkashJewller" parent="Base.Theme.AkashJewller" />
 </resources>

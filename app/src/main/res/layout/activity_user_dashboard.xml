@@ -50,7 +50,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:background="@color/off_white"
                     android:padding="10sp">
 
@@ -69,6 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10sp"
                         android:text="@string/gold"
+
                         android:textColor="#212529"
                         android:textSize="23sp"
                         app:layout_constraintStart_toEndOf="@+id/gold_icon"
@@ -88,9 +89,8 @@
                         android:id="@+id/gold_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="₹ 90000"
                         android:textColor="#212529"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/gold_text" />
 
@@ -98,9 +98,8 @@
                         android:id="@+id/gold_update_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Updated: 2 April 10:00 AM"
                         android:textColor="#6c757d"
-                        android:textSize="11sp"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="@+id/gold_price"
                         app:layout_constraintTop_toBottomOf="@+id/gold_price" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -124,7 +123,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:background="@color/off_white"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:padding="10sp">
 
                     <ImageView
@@ -161,9 +160,8 @@
                         android:id="@+id/silver_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="₹ 90000"
                         android:textColor="#212529"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/silver_text" />
 
@@ -171,9 +169,8 @@
                         android:id="@+id/silver_update_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Updated: 2 April 10:00 AM"
                         android:textColor="#6c757d"
-                        android:textSize="11sp"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="@+id/silver_price"
                         app:layout_constraintTop_toBottomOf="@+id/silver_price" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -197,7 +194,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:background="@color/off_white"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:padding="10sp">
 
                     <ImageView
@@ -226,7 +223,7 @@
                         android:layout_height="wrap_content"
                         android:text="Bank/UPI inc. GST"
                         android:textColor="#212529"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         app:layout_constraintStart_toStartOf="@+id/silver_upi_text"
                         app:layout_constraintTop_toBottomOf="@+id/silver_upi_text" />
 
@@ -234,9 +231,8 @@
                         android:id="@+id/silver_upi_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="₹ 90000"
                         android:textColor="#212529"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/silver_upi_text" />
 
@@ -244,9 +240,8 @@
                         android:id="@+id/silver_upi_update_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Updated: 2 April 10:00 AM"
                         android:textColor="#6c757d"
-                        android:textSize="11sp"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="@+id/silver_upi_price"
                         app:layout_constraintTop_toBottomOf="@+id/silver_upi_price" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -270,7 +265,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:background="@color/off_white"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100sp"
                     android:padding="10sp">
 
                     <ImageView
@@ -299,7 +294,7 @@
                         android:layout_height="wrap_content"
                         android:text="Bank/UPI inc. GST"
                         android:textColor="#212529"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         app:layout_constraintStart_toStartOf="@+id/gold_upi_text"
                         app:layout_constraintTop_toBottomOf="@+id/gold_upi_text" />
 
@@ -307,9 +302,8 @@
                         android:id="@+id/gold_upi_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="₹ 90000"
                         android:textColor="#212529"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/gold_upi_text" />
 
@@ -317,9 +311,8 @@
                         android:id="@+id/gold_upi_update_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Updated: 2 April 10:00 AM"
                         android:textColor="#6c757d"
-                        android:textSize="11sp"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="@+id/gold_upi_price"
                         app:layout_constraintTop_toBottomOf="@+id/gold_upi_price" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
