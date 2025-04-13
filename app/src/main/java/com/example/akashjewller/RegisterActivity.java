@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,11 +23,11 @@ public class RegisterActivity extends AppCompatActivity {
     EditText SignupName, SignupPhoneNumber, SignupEmail, SignupPassword;
     AppCompatButton SignUpButton;
 
-    TextView LoginRedirect;
-
     FirebaseDatabase database;
 
     DatabaseReference reference;
+
+    ImageView back_to_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
         SignupEmail = findViewById(R.id.email_text);
         SignupPassword = findViewById(R.id.password_text);
         SignUpButton = findViewById(R.id.SignUp_button);
-        LoginRedirect = findViewById(R.id.login_redirect_text);
+        back_to_login = findViewById(R.id.btnBack);
 
         SignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        LoginRedirect.setOnClickListener(new View.OnClickListener() {
+        back_to_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RegisterActivity.this, EmailLoginActivity.class);

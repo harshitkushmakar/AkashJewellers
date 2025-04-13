@@ -423,6 +423,7 @@
         android:layout_width="0sp"
         android:layout_height="wrap_content"
         android:elevation="0sp"
+        android:background="@color/off_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
