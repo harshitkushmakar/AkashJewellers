@@ -1,14 +1,32 @@
 {
   "project_info": {
-    "project_number": "229899617663",
-    "firebase_url": "https://akash-jewllers-default-rtdb.firebaseio.com",
-    "project_id": "akash-jewllers",
-    "storage_bucket": "akash-jewllers.firebasestorage.app"
+    "project_number": "335824851604",
+    "project_id": "construction-based-application",
+    "storage_bucket": "construction-based-application.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:229899617663:android:9127ae900eb9211069064a",
+        "mobilesdk_app_id": "1:335824851604:android:c193b26f84706fab695a81",
+        "android_client_info": {
+          "package_name": "com.constructionsiteapp.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP5RXr6YTIAFrV1-Az2pyAz2DFeMGwSdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335824851604:android:6f79e6209d3e8774695a81",
         "android_client_info": {
           "package_name": "com.example.akashjewller"
         }
@@ -16,7 +34,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAYQ3PcKjIulCjTbjKcEa-sOJLGguylyr4"
+          "current_key": "AIzaSyCP5RXr6YTIAFrV1-Az2pyAz2DFeMGwSdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335824851604:android:7aa40053e834bf96695a81",
+        "android_client_info": {
+          "package_name": "com.example.constructionsite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP5RXr6YTIAFrV1-Az2pyAz2DFeMGwSdk"
         }
       ],
       "services": {

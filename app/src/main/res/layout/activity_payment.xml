@@ -4,38 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PaymentActivity">
+    tools:context=".fragment.PaymentActivity">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested_scroll_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:layout_height="wrap_content">
 
             <!-- UNION Bank Card -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/union_bank_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button_backgroun"
+                android:background="@drawable/rounded_button_background"
                 android:padding="16dp"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/union_bank_logo"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
                     android:src="@drawable/unionbank"
                     android:contentDescription="UNION Bank Logo"
                     android:layout_marginBottom="16dp"
@@ -139,7 +137,7 @@
                     android:id="@+id/union_ifsc_value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="UBI"
+                    android:text="UBIN0558737"
                     android:textAlignment="textEnd"
                     android:textColor="#333333"
                     android:textSize="16sp"
@@ -177,7 +175,7 @@
                     android:id="@+id/union_branch_value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Rathyatra"
+                    android:text="Jhumri Teliya"
                     android:textAlignment="textEnd"
                     android:textColor="#333333"
                     android:textSize="16sp"
@@ -185,6 +183,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/union_branch_label"
                     app:layout_constraintWidth_percent="0.6" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- SBI Card -->
@@ -192,16 +191,16 @@
                 android:id="@+id/sbi_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button_backgroun"
+                android:background="@drawable/rounded_button_background"
                 android:padding="16dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/union_bank_card">
 
                 <ImageView
                     android:id="@+id/sbi_logo"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/sbi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sbi_logo"
                     android:contentDescription="SBI Bank Logo"
                     android:layout_marginBottom="16dp"
                     app:layout_constraintTop_toTopOf="parent"
@@ -266,7 +265,7 @@
                     android:id="@+id/sbi_ac_number_value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="9999 959844 6630"
+                    android:text="41039569965"
                     android:textAlignment="textEnd"
                     android:textColor="#333333"
                     android:textSize="16sp"
@@ -304,7 +303,7 @@
                     android:id="@+id/sbi_ifsc_value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="HDFC00 00220"
+                    android:text="SBIN0000118"
                     android:textAlignment="textEnd"
                     android:textColor="#333333"
                     android:textSize="16sp"
@@ -342,7 +341,7 @@
                     android:id="@+id/sbi_branch_value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Rathyatra"
+                    android:text="Jhumri Teliya"
                     android:textAlignment="textEnd"
                     android:textColor="#333333"
                     android:textSize="16sp"
@@ -357,7 +356,7 @@
                 android:id="@+id/qr_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button_backgroun"
+                android:background="@drawable/rounded_button_background"
                 android:padding="16dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/sbi_card">
@@ -419,15 +418,5 @@
     </androidx.core.widget.NestedScrollView>
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="0sp"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:elevation="0sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

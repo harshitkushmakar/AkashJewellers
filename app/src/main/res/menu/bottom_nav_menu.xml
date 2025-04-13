@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+
         android:id="@+id/Home_menu"
         android:icon="@drawable/baseline_cottage_24"
-        android:title="Home" />
+        android:title="@string/home" />
     <item
         android:id="@+id/Contact_menu"
         android:icon="@drawable/baseline_contacts_24"
-        android:title="Contact" />
+        android:title="@string/contact" />
     <item
         android:id="@+id/Payment_menu"
         android:icon="@drawable/baseline_account_balance_24"
-        android:title="Payment Details" />
+        android:title="@string/payment_details" />
 </menu>

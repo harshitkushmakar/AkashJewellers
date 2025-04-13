@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp"
@@ -50,7 +49,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:textColor="@color/black"
             android:inputType=""
             android:textSize="20sp" />
     </LinearLayout>
@@ -88,7 +86,6 @@
             android:id="@+id/phoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:background="@null"
             android:inputType="phone"
             android:textSize="20sp" />
@@ -173,6 +170,7 @@
             android:layout_height="64dp"
             android:layout_marginEnd="32dp"
             android:contentDescription="@string/email_icon"
+            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:src="@drawable/email" />
 
         <ImageView
@@ -181,6 +179,7 @@
             android:layout_height="64dp"
             android:layout_marginStart="32dp"
             android:contentDescription="@string/email_icon"
+            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:src="@drawable/google" />
 
     </LinearLayout>

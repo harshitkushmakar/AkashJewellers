@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Base.Theme.AkashJewller" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:windowBackground">@color/white</item>
 
-        <item name="android:statusBarColor">@color/grey</item>
+    <style name="Base.Theme.AkashJewller" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowLightStatusBar">false</item> <!-- light icons -->
+
     </style>
 
  </resources>

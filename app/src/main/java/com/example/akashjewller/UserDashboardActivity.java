@@ -1,5 +1,7 @@
 package com.example.akashjewller;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -8,46 +10,42 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-// Firebase Imports
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-// Other necessary imports
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.TimeZone;
-
-// Material Design Imports
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
+import java.util.concurrent.TimeUnit;
 
 public class UserDashboardActivity extends AppCompatActivity {
 
     private static final String TAG = "UserDashboardActivity";
+    private static final String PREF_LAST_LOGIN = "last_login";
+    private static final long LOGOUT_THRESHOLD = TimeUnit.DAYS.toMillis(15);
 
-    // Declare TextViews matching the XML IDs
     private TextView tvGoldPrice, tvGoldUpdateTime;
     private TextView tvSilverPrice, tvSilverUpdateTime;
-    private TextView tvGoldUpiPrice, tvGoldUpiUpdateTime; // Corresponds to RTGS price in Firebase
-    private TextView tvSilverUpiPrice, tvSilverUpiUpdateTime; // Corresponds to RTGS price in Firebase
+    private TextView tvGoldUpiPrice, tvGoldUpiUpdateTime;
+    private TextView tvSilverUpiPrice, tvSilverUpiUpdateTime;
 
-    // Declare Firebase Database reference and Listener
     private DatabaseReference priceUpdateNodeReference;
     private ValueEventListener priceValueEventListener;
-
-    // Declare Bottom Navigation View
-//    private BottomNavigationView bottomNavigationView; // Keep commented as per last request
+    private SharedPreferences sharedPreferences;
+    private FirebaseAuth mAuth;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +60,18 @@ public class UserDashboardActivity extends AppCompatActivity {
             return WindowInsetsCompat.CONSUMED;
         });
 
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
+
+        // Check for inactivity and logout if needed
+        checkLastLogin();
+
+        // Update the last login time
+        updateLastLogin();
+
         // Initialize TextViews from the layout
         tvGoldPrice = findViewById(R.id.gold_price);
         tvGoldUpdateTime = findViewById(R.id.gold_update_time);
@@ -73,16 +83,74 @@ public class UserDashboardActivity extends AppCompatActivity {
         tvSilverUpiUpdateTime = findViewById(R.id.silver_upi_update_time);
 
         // Initialize BottomNavigationView
-        // bottomNavigationView = findViewById(R.id.bottomNavigation); // Keep commented
+        bottomNavigationView = findViewById(R.id.bottomNavigation);
+        setupBottomNavigation();
 
         // Initialize Firebase Database reference
         priceUpdateNodeReference = FirebaseDatabase.getInstance().getReference("price_updates");
 
         // Setup the real-time listener for price updates
         setupFirebaseListener();
+    }
 
-        // Setup listener for Bottom Navigation View item clicks
-        // setupBottomNavigation(); // Keep commented
+    private void checkLastLogin() {
+        long lastLoginTime = sharedPreferences.getLong(PREF_LAST_LOGIN, 0);
+        long currentTime = System.currentTimeMillis();
+
+        if (lastLoginTime != 0 && (currentTime - lastLoginTime) > LOGOUT_THRESHOLD) {
+            // User hasn't opened the app for more than 15 days, log them out
+            mAuth.signOut();
+            Toast.makeText(this, "Logged out due to inactivity.", Toast.LENGTH_LONG).show();
+            navigateToLoginActivity();
+        }
+    }
+
+    private void updateLastLogin() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putLong(PREF_LAST_LOGIN, System.currentTimeMillis());
+        editor.apply();
+        Log.d(TAG, "Last login time updated.");
+    }
+
+    private void navigateToLoginActivity() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    private void setupBottomNavigation() {
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+                if (itemId == R.id.Home_menu) {
+                    navigateToUserDashboardActivity();
+                    return true;
+                } else if (itemId == R.id.Contact_menu) {
+                    navigateToContactActivity();
+                    return true;
+                } else if (itemId == R.id.Payment_menu) {
+                    navigateToPaymentDetailsActivity();
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+
+    private void navigateToUserDashboardActivity() {
+        Intent intent = new Intent(this, UserDashboardActivity.class);
+        startActivity(intent);
+    }
+    private void navigateToContactActivity() {
+        Intent intent = new Intent(this, ContactActivity.class);
+        startActivity(intent);
+    }
+
+    private void navigateToPaymentDetailsActivity() {
+        Intent intent = new Intent(this, PaymentActivity.class);
+        startActivity(intent);
     }
 
     private void setupFirebaseListener() {
@@ -123,9 +191,7 @@ public class UserDashboardActivity extends AppCompatActivity {
         String formattedTime = "--";
         if (prices.getTimestamp() != null) {
             try {
-                // *** ALIGNED FORMAT *** Use the same format as Admin's display button
                 SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, yyyy hh:mm a", Locale.getDefault());
-                // sdf.setTimeZone(TimeZone.getDefault()); // Optional
                 Date resultDate = new Date(prices.getTimestamp());
                 formattedTime = sdf.format(resultDate);
             } catch (Exception e) {
@@ -134,7 +200,6 @@ public class UserDashboardActivity extends AppCompatActivity {
             }
         }
 
-        // Set prices and the formatted server timestamp
         tvGoldPrice.setText(prices.getGold_price() != null ? currencyFormat.format(prices.getGold_price()) : "N/A");
         tvGoldUpdateTime.setText(formattedTime);
 
@@ -160,13 +225,6 @@ public class UserDashboardActivity extends AppCompatActivity {
         tvGoldUpiUpdateTime.setText(placeholderTime);
         tvSilverUpiUpdateTime.setText(placeholderTime);
     }
-
-    // Setup listener for Bottom Navigation View (Keep commented)
-    /*
-    private void setupBottomNavigation() {
-        // ... (implementation remains the same)
-    }
-    */
 
     @Override
     protected void onDestroy() {

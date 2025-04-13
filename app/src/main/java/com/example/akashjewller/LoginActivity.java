@@ -1,7 +1,9 @@
 package com.example.akashjewller;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -16,6 +18,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.appcheck.FirebaseAppCheck;
@@ -47,6 +50,26 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_login);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+
+
+        });
+        int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        View decor = getWindow().getDecorView();
+
+        if (currentNightMode == Configuration.UI_MODE_NIGHT_NO) {
+            // Light mode: show dark icons
+            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        } else {
+            // Dark mode: show light icons
+            decor.setSystemUiVisibility(0);
+        }
+
 
         // Initialize Firebase properly
         FirebaseApp.initializeApp(this);
@@ -65,14 +88,6 @@ public class LoginActivity extends AppCompatActivity {
         // Initialize reCAPTCHA configuration
         initializeRecaptchaConfig();
 
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_login);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
         EnterName = findViewById(R.id.enter_name);
         EnterNumber = findViewById(R.id.phoneNumber);
         GetOtp = findViewById(R.id.getOtpButton);
@@ -83,6 +98,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, EmailLoginActivity.class);
             startActivity(intent);
         });
+
 
         GetOtp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,6 +162,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void initiateOtpVerification(String mobileNumber) {
         PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
@@ -221,7 +239,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void saveNewUserData(String name, String phone) {
-        DatabaseReference usersRef = mDatabase.child("users");
+        DatabaseReference usersRef = mDatabase.child("Phone");
         String userId = usersRef.push().getKey(); // Generate a unique ID for the user
 
         if (userId != null) {

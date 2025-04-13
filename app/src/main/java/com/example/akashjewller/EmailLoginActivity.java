@@ -191,36 +191,5 @@ public class EmailLoginActivity extends AppCompatActivity {
             }
         });
     }
-    // --- End of original user checking logic ---
 
-    // --- Placeholder for UserClass ---
-    // Ensure you have this class defined correctly
-    public static class UserClass {
-        public String email;
-        public String password;
-        public String name; // Add other fields if they exist in your DB
-
-        public UserClass() {
-            // Default constructor required for calls to DataSnapshot.getValue(UserClass.class)
-        }
-
-        public UserClass(String name, String email, String password) {
-            this.name = name;
-            this.email = email;
-            this.password = password;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public String getPassword() {
-            return password;
-        }
-
-        public String getName() {
-            return name;
-        }
-    }
-    // --- End of Placeholder ---
 }

@@ -7,12 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".UserDashboardActivity">
 
-    <!-- Scrollable Content -->
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="0sp"
         android:layout_height="0sp"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,7 +23,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/main_layout">
 
-            <!-- Banner Image -->
             <ImageView
                 android:id="@+id/location_view"
                 android:layout_width="0sp"
@@ -33,15 +33,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Gold Section -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/gold_card"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16sp"
-                android:layout_marginTop="60sp"
+                android:layout_marginTop="25sp"
                 android:layout_marginEnd="16sp"
-                android:background="@drawable/rounded_button_backgroun"
+                android:background="@drawable/rounded_button_background"
                 app:cardCornerRadius="20sp"
                 app:cardElevation="4sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +50,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:background="@color/off_white"
+                    android:background="@color/white"
                     android:padding="10sp">
 
                     <ImageView
@@ -105,7 +104,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Silver Section -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/silver_card"
                 android:layout_width="0sp"
@@ -113,7 +111,7 @@
                 android:layout_marginStart="16sp"
                 android:layout_marginTop="16sp"
                 android:layout_marginEnd="20sp"
-                android:background="@drawable/rounded_button_backgroun"
+                android:background="@drawable/rounded_button_background"
                 app:cardCornerRadius="15sp"
                 app:cardElevation="4sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -121,7 +119,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/gold_card">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:background="@color/off_white"
+                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:padding="10sp">
@@ -176,7 +174,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Silver UPI Section -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/silver_upi_card"
                 android:layout_width="0sp"
@@ -184,7 +181,7 @@
                 android:layout_marginStart="16sp"
                 android:layout_marginTop="16sp"
                 android:layout_marginEnd="16sp"
-                android:background="@drawable/rounded_button_backgroun"
+                android:background="@drawable/rounded_button_background"
                 app:cardCornerRadius="20sp"
                 app:cardElevation="4sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -192,7 +189,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/silver_card">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:background="@color/off_white"
+                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:padding="10sp">
@@ -247,7 +244,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Gold UPI Section -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/gold_upi_card"
                 android:layout_width="0sp"
@@ -255,7 +251,7 @@
                 android:layout_marginStart="16sp"
                 android:layout_marginTop="16sp"
                 android:layout_marginEnd="16sp"
-                android:background="@drawable/rounded_button_backgroun"
+                android:background="@drawable/rounded_button_background"
                 app:cardCornerRadius="20sp"
                 app:cardElevation="4sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -263,7 +259,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/silver_upi_card">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:background="@color/off_white"
+                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="100sp"
                     android:padding="10sp">
@@ -318,7 +314,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Disclaimer -->
             <TextView
                 android:id="@+id/disclaimer"
                 android:layout_width="430sp"
@@ -339,21 +334,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Yellow divider -->
-    <View
-        android:id="@+id/divider"
-        android:layout_width="0sp"
-        android:layout_height="1sp"
-        android:background="#DAA520"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
-        android:layout_width="0sp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
         android:elevation="0sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

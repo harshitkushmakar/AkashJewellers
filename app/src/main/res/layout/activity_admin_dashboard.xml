@@ -1,30 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
-    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     tools:context=".AdminDashboardActivity">
-    <LinearLayout
+
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_marginTop="50dp">
+        android:layout_height="100dp"
+        android:id="@+id/toolbar"
+        android:background="@color/Golden"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.Toolbar>
 
 
+    <ScrollView
+        android:id="@+id/main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-
-        <!-- Gold Card -->
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp"
-                android:background="@drawable/golden_admin_boundry">
+                android:padding="16dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -42,7 +57,6 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:textColor="@color/black"
                         android:layout_height="wrap_content"
                         android:text="Current Price: ₹"
                         android:textSize="16sp" />
@@ -53,18 +67,10 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:inputType="numberDecimal"
-                        android:textColor="#333333"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:background="@android:drawable/editbox_background" />
+                        android:textStyle="bold" />
                 </LinearLayout>
-
-
             </LinearLayout>
-
-
-        <!-- Silver Card -->
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,7 +78,7 @@
                 android:layout_marginTop="15dp"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:background="@drawable/golden_admin_boundry">
+               >
 
                 <TextView
                     android:layout_width="match_parent"
@@ -91,7 +97,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
                         android:text="Current Price: ₹"
                         android:textSize="16sp" />
 
@@ -101,17 +106,10 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:inputType="numberDecimal"
-                        android:textColor="#333333"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:background="@android:drawable/editbox_background" />
+                        android:textStyle="bold" />
                 </LinearLayout>
-
             </LinearLayout>
-
-
-        <!-- Gold RTGS Card -->
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -119,12 +117,12 @@
                 android:orientation="vertical"
                 android:layout_marginTop="15dp"
                 android:padding="16dp"
-                android:background="@drawable/golden_admin_boundry">
+               >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Gold (RTGS)"
+                    android:text="@string/gold_upi"
                     android:textColor="#B8860B"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -138,7 +136,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
                         android:text="Current Price: ₹"
                         android:textSize="16sp" />
 
@@ -148,17 +145,10 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:inputType="numberDecimal"
-                        android:textColor="#333333"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:background="@android:drawable/editbox_background" />
+                        android:textStyle="bold" />
                 </LinearLayout>
-
             </LinearLayout>
-
-
-        <!-- Silver RTGS Card -->
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -166,12 +156,12 @@
                 android:orientation="vertical"
                 android:layout_marginTop="15dp"
                 android:padding="16dp"
-                android:background="@drawable/golden_admin_boundry">
+            >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Silver (RTGS)"
+                    android:text="@string/silver_upi"
                     android:textColor="#808080"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -185,7 +175,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
                         android:text="Current Price: ₹"
                         android:textSize="16sp" />
 
@@ -195,69 +184,70 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:inputType="numberDecimal"
-                        android:textColor="#333333"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:background="@android:drawable/editbox_background" />
+                       />
+<!--                  android:background="@android:drawable/editbox_background"-->
+
                 </LinearLayout>
-
-
             </LinearLayout>
-        <!-- Editable timestamp -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="30dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="24dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last Updated: "
-                android:textColor="#666666"
-                android:textSize="16sp" />
+                android:paddingTop="30dp"
+                android:orientation="horizontal"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="24dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Last Updated: "
+                    android:textColor="#666666"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/timestampEditText"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/timestampEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:background="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:background="@null" />
+                android:orientation="horizontal"
+                android:paddingTop="30dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/currentTimeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/golden_button_background"
+                    android:padding="12dp"
+                    android:text="@string/update_time_date"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/saveButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Save Updates"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/golden_button_background"
+                    android:padding="12dp"
+                    android:layout_marginStart="4dp"/>
+            </LinearLayout>
+
         </LinearLayout>
+    </ScrollView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="30dp"
-            android:layout_marginTop="8dp">
-
-            <Button
-                android:id="@+id/currentTimeButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_weight="1"
-                android:background="#4CAF50"
-                android:padding="12dp"
-                android:text="Set Current Time"
-                android:textColor="#FFFFFF" />
-
-            <Button
-                android:id="@+id/saveButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Save Updates"
-                android:textColor="#FFFFFF"
-                android:background="#0000FF"
-                android:padding="12dp"
-                android:layout_marginStart="4dp"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,33 +1,39 @@
 package com.example.akashjewller; // Your package name
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils; // Import TextUtils
-import android.util.Log;      // Import Log
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText; // Import EditText
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;    // Import Toast
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull; // Import NonNull for listeners
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 // Firebase Imports
-import com.google.android.gms.tasks.OnFailureListener; // Import specific listeners
-import com.google.android.gms.tasks.OnSuccessListener; // Import specific listeners
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
+import androidx.appcompat.widget.Toolbar;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap; // Import HashMap
+import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;    // Import Map
+import java.util.Map;
 
 public class AdminDashboardActivity extends AppCompatActivity {
 
@@ -37,11 +43,50 @@ public class AdminDashboardActivity extends AppCompatActivity {
     // Declare UI elements from your layout
     private EditText goldPriceEditText, silverPriceEditText, goldRTGSPriceEditText, silverRTGSPriceEditText;
     private TextView timestampTextView; // Renamed for clarity (was timestampEditText)
-    Button currentTimeButton, saveButton;
+    AppCompatButton currentTimeButton, saveButton;
 
     // Declare Firebase Database reference
     // This reference now points directly to the node we want to update
     private DatabaseReference priceUpdateNodeReference;
+
+    Toolbar toolbar;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.admin_toolbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_logout) {
+            // Handle logout action
+            logoutUser();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void logoutUser() {
+        // Clear user session/shared preferences
+        SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+
+        // Log the logout action
+        Log.d(TAG, "User logged out successfully");
+
+        // Navigate to login screen (assuming you have a LoginActivity)
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +100,10 @@ public class AdminDashboardActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Set up toolbar
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         // --- Initialize Firebase ---
         // Point DIRECTLY to the "price_updates" node in your Firebase Realtime Database.
@@ -155,10 +204,10 @@ public class AdminDashboardActivity extends AppCompatActivity {
                         Toast.makeText(AdminDashboardActivity.this, "Prices updated successfully!", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "Data updated successfully at " + priceUpdateNodeReference.getKey());
                         // Optional: Clear fields after successful save/update
-                         goldPriceEditText.setText("");
-                         silverPriceEditText.setText("");
-                         goldRTGSPriceEditText.setText("");
-                         silverRTGSPriceEditText.setText("");
+                        goldPriceEditText.setText("");
+                        silverPriceEditText.setText("");
+                        goldRTGSPriceEditText.setText("");
+                        silverRTGSPriceEditText.setText("");
                         // Consider *not* clearing fields if the admin might want to make small adjustments
                     }
                 })
