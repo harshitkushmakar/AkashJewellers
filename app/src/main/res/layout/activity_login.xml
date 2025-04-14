@@ -5,16 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:layout_margin="20sp"
     android:orientation="vertical"
-    android:padding="28dp"
+    android:padding="28sp"
     tools:context=".LoginActivity">
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="8sp"
         android:text="@string/sign_in_sign_up"
         android:textColor="#008080"
         android:textSize="27sp"
@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="32sp"
         android:text="@string/sign_up_or_sign_in_description"
         android:textColor="#666666"
         android:textSize="18sp" />
@@ -31,7 +31,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="10sp"
         android:text="@string/enter_your_user_name"
         android:textColor="#008080"
         android:textSize="16sp"
@@ -40,7 +40,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="4sp"
         android:orientation="horizontal">
 
 
@@ -55,14 +55,14 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="40dp"
+        android:layout_height="1sp"
+        android:layout_marginBottom="40sp"
         android:background="#DDDDDD" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="8sp"
         android:text="@string/enter_mobile_number"
         android:textColor="#008080"
         android:textSize="16sp"
@@ -71,14 +71,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="4sp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/country_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="8sp"
             android:text="@string/_91"
             android:textSize="20sp" />
 
@@ -93,8 +93,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="40dp"
+        android:layout_height="1sp"
+        android:layout_marginBottom="40sp"
         android:background="#DDDDDD" />
 
     <FrameLayout
@@ -106,17 +106,17 @@
             android:id="@+id/getOtpButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="32sp"
             android:background="@drawable/golden_button_background"
-            android:padding="16dp"
+            android:padding="16sp"
             android:text="@string/get_otp"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
         <ProgressBar
             android:layout_gravity="center"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
             android:visibility="gone"
             android:id="@+id/progressbarGetOtp">
 
@@ -128,27 +128,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="32sp"
         android:gravity="center"
         android:orientation="horizontal">
 
         <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_width="0sp"
+            android:layout_height="1sp"
             android:layout_weight="1"
             android:background="#DEE2E6" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:paddingStart="16sp"
+            android:paddingEnd="16sp"
             android:text="@string/or"
             android:textColor="#ADB5BD" />
 
         <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_width="0sp"
+            android:layout_height="1sp"
             android:layout_weight="1"
             android:background="#DEE2E6" />
     </LinearLayout>
@@ -162,22 +162,22 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:padding="16dp">
+        android:padding="16sp">
 
         <ImageView
             android:id="@+id/email_image"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="32dp"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+            android:layout_marginEnd="32sp"
             android:contentDescription="@string/email_icon"
             android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:src="@drawable/email" />
 
         <ImageView
             android:id="@+id/google_image"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="32dp"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+            android:layout_marginStart="32sp"
             android:contentDescription="@string/email_icon"
             android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:src="@drawable/google" />

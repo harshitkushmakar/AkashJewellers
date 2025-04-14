@@ -1,53 +1,16 @@
 {
   "project_info": {
     "project_number": "335824851604",
+    "firebase_url": "https://construction-based-application-default-rtdb.firebaseio.com",
     "project_id": "construction-based-application",
     "storage_bucket": "construction-based-application.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:335824851604:android:c193b26f84706fab695a81",
-        "android_client_info": {
-          "package_name": "com.constructionsiteapp.com"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCP5RXr6YTIAFrV1-Az2pyAz2DFeMGwSdk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:335824851604:android:6f79e6209d3e8774695a81",
         "android_client_info": {
           "package_name": "com.example.akashjewller"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCP5RXr6YTIAFrV1-Az2pyAz2DFeMGwSdk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:335824851604:android:7aa40053e834bf96695a81",
-        "android_client_info": {
-          "package_name": "com.example.constructionsite"
         }
       },
       "oauth_client": [],

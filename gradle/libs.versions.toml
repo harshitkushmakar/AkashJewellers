@@ -20,6 +20,8 @@ lifecycleLivedataKtx = "2.8.7"
 lifecycleViewmodelKtx = "2.8.7"
 recaptcha = "18.5.1"
 navVersion = "2.7.7"
+navigationFragment = "2.8.9"
+navigationUi = "2.8.9"
 
 
 
@@ -44,6 +46,8 @@ lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-view
 recaptcha = { group = "com.google.android.recaptcha", name = "recaptcha", version.ref = "recaptcha" } # Added library reference
 navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navVersion" }
 navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navVersion" }
+navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
+navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
 
 
 [plugins]

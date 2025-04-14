@@ -17,14 +17,14 @@
 
         <ImageView
 
-            android:layout_width="303dp"
-            android:layout_height="399dp"
+            android:layout_width="303sp"
+            android:layout_height="399sp"
             android:src="@drawable/akashjeweller">
 
         </ImageView>
 
         <ProgressBar
-            android:layout_width="32dp"
+            android:layout_width="32sp"
             android:layout_height="wrap_content">
 
         </ProgressBar>
@@ -38,7 +38,7 @@
         android:text="@string/Developed"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="20sp"
         android:textSize="11sp"
         android:textColor="#FF808080"
         >

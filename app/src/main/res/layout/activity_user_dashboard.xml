@@ -49,7 +49,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="100sp"
                     android:background="@color/white"
                     android:padding="10sp">
 
@@ -121,7 +121,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:background="@color/white"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="100sp"
                     android:padding="10sp">
 
                     <ImageView
@@ -191,7 +191,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:background="@color/white"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="100sp"
                     android:padding="10sp">
 
                     <ImageView
@@ -336,8 +336,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
-        android:layout_width="0dp"
-        android:background="@color/off_white"
+        android:layout_width="0sp"
         android:layout_height="wrap_content"
         android:elevation="0sp"
         app:layout_constraintBottom_toBottomOf="parent"

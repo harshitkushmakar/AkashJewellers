@@ -1,7 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Base.Theme.AkashJewller" parent="Theme.Material3.Light.NoActionBar">
-        <item name="android:windowLightStatusBar">false</item> <!-- light icons -->
+    <style name="Base.Theme.AkashJewller" parent="Theme.Material3.DayNight.NoActionBar">
 
     </style>
 

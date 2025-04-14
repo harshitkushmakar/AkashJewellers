@@ -1,13 +1,9 @@
 package com.example.akashjewller; // Your package name
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -50,43 +46,6 @@ public class AdminDashboardActivity extends AppCompatActivity {
     private DatabaseReference priceUpdateNodeReference;
 
     Toolbar toolbar;
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.admin_toolbar_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_logout) {
-            // Handle logout action
-            logoutUser();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void logoutUser() {
-        // Clear user session/shared preferences
-        SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.clear();
-        editor.apply();
-
-        // Log the logout action
-        Log.d(TAG, "User logged out successfully");
-
-        // Navigate to login screen (assuming you have a LoginActivity)
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show();
-        finish();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

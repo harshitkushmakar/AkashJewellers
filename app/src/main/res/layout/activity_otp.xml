@@ -5,13 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".OtpActivity"
-    android:padding="25sp"
     android:orientation="vertical">
-
-
-
-
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -24,7 +20,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="15sp"
+        android:padding="10dp"
         android:orientation="vertical">
     <!-- Sign In Title -->
     <TextView
@@ -75,12 +72,13 @@
             android:layout_weight="1" />
 
         <TextView
+            android:id="@+id/change_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/change"
             android:textSize="16sp"
             android:textColor="#E91E63"
-            android:id="@+id/change_number"/>
+        />
     </LinearLayout>
 
     <!-- OTP Sent Text -->
@@ -199,7 +197,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/waiting_for_otp_60_sec"
+            android:text="@string/waiting_for_otp_dynamic"
             android:textSize="16sp"
             android:id="@+id/waiting_otp"
             android:textColor="#666666" />

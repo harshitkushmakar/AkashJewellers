@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,8 @@ public class EmailLoginActivity extends AppCompatActivity {
     EditText LoginPassword;
     TextView ForgotPassword;
 
+    ImageView back_to_otp;
+
     // Define a constant for the admin login identifier (use a specific email or username)
     private static final String ADMIN_EMAIL_IDENTIFIER = "admin"; // Or "admin@yourapp.com", etc.
 
@@ -48,6 +51,15 @@ public class EmailLoginActivity extends AppCompatActivity {
         LoginEmail = findViewById(R.id.Login_email);
         ForgotPassword = findViewById(R.id.forgot_password);
         LoginPassword = findViewById(R.id.Login_password_text);
+        back_to_otp = findViewById(R.id.btnBack);
+
+        back_to_otp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EmailLoginActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,6 +172,7 @@ public class EmailLoginActivity extends AppCompatActivity {
                         // Double check user and email just to be safe, though query should ensure it
                         if (user != null && user.getEmail().equals(userEmail)) {
                             // Correct password comparison
+                            // Exit after finding user but wrong password
                             if (user.getPassword().equals(userPassword)) {
                                 Toast.makeText(EmailLoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                 // --- IMPORTANT: Replace with your actual User Dashboard Activity ---
@@ -167,12 +180,11 @@ public class EmailLoginActivity extends AppCompatActivity {
                                 // -----------------------------------------------------------------
                                 startActivity(intent);
                                 finish(); // Close the login activity
-                                return; // Exit after successful login
                             } else {
                                 LoginPassword.setError("Incorrect Password");
                                 LoginPassword.requestFocus();
-                                return; // Exit after finding user but wrong password
                             }
+                            return; // Exit after successful login
                         }
                     }
                     // If loop finishes without finding a matching user object (shouldn't happen with query)

@@ -11,8 +11,8 @@
   <!-- Nested Scroll View containing the content -->
   <androidx.core.widget.NestedScrollView
       android:id="@+id/contact_nested_scroll"
-      android:layout_width="0dp"
-      android:layout_height="0dp"
+      android:layout_width="0sp"
+      android:layout_height="0sp"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -24,8 +24,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_button_background"
         android:layout_gravity="center"
-        android:padding="20dp"
-        android:layout_margin="10dp"
+        android:padding="20sp"
+        android:layout_margin="10sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -33,7 +33,7 @@
       <!-- Contact Title -->
       <TextView
           android:id="@+id/tv_contact_details_title"
-          android:layout_width="0dp"
+          android:layout_width="0sp"
           android:layout_height="wrap_content"
           android:text="Contact Details"
           android:textColor="#345DDA"
@@ -43,13 +43,13 @@
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintHorizontal_bias="0.5"
-          android:layout_marginBottom="16dp"
-          android:layout_marginTop="20dp" />
+          android:layout_marginBottom="16sp"
+          android:layout_marginTop="20sp" />
 
       <!-- Name Row -->
       <TextView
           android:id="@+id/tv_name"
-          android:layout_width="0dp"
+          android:layout_width="0sp"
           android:layout_height="wrap_content"
           android:text="Awadesh Seth"
           android:textSize="20sp"
@@ -59,13 +59,13 @@
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintHorizontal_bias="0.5"
-          android:layout_marginBottom="16dp"
-          android:layout_marginTop="30dp" />
+          android:layout_marginBottom="16sp"
+          android:layout_marginTop="30sp" />
 
       <!-- Phone Number 1 -->
       <TextView
           android:id="@+id/personal_phone_1"
-          android:layout_width="0dp"
+          android:layout_width="0sp"
           android:layout_height="wrap_content"
           android:text="+91 8579909138"
           android:textSize="18sp"
@@ -74,15 +74,15 @@
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintEnd_toStartOf="@id/btn_phone"
           app:layout_constraintHorizontal_bias="0.5"
-          android:layout_marginBottom="16dp"
-          android:layout_marginTop="30dp" />
+          android:layout_marginBottom="16sp"
+          android:layout_marginTop="30sp" />
 
       <!-- Phone Number 1 Button -->
       <ImageButton
           android:id="@+id/btn_phone"
-          android:layout_width="48dp"
-          android:layout_height="48dp"
-          android:layout_marginEnd="20dp"
+          android:layout_width="48sp"
+          android:layout_height="48sp"
+          android:layout_marginEnd="20sp"
           android:background="@drawable/mobile_number_icon"
           app:layout_constraintBottom_toBottomOf="@id/personal_phone_1"
           app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,7 @@
       <!-- Phone Number 2 -->
       <TextView
           android:id="@+id/personal_phone_2"
-          android:layout_width="0dp"
+          android:layout_width="0sp"
           android:layout_height="wrap_content"
           android:text="+91 9162766127"
           android:textSize="18sp"
@@ -101,15 +101,15 @@
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintEnd_toStartOf="@id/btn_whatsapp"
           app:layout_constraintHorizontal_bias="0.5"
-          android:layout_marginBottom="16dp"
-          android:layout_marginTop="30dp" />
+          android:layout_marginBottom="16sp"
+          android:layout_marginTop="30sp" />
 
       <!-- WhatsApp Button -->
       <ImageButton
           android:id="@+id/btn_whatsapp"
-          android:layout_width="57dp"
-          android:layout_height="57dp"
-          android:layout_marginEnd="14dp"
+          android:layout_width="57sp"
+          android:layout_height="57sp"
+          android:layout_marginEnd="14sp"
           android:background="@drawable/icon_whatsapp"
           app:layout_constraintBottom_toBottomOf="@id/personal_phone_2"
           app:layout_constraintEnd_toEndOf="parent"
@@ -123,9 +123,8 @@
   <!-- Bottom Navigation Bar -->
   <com.google.android.material.bottomnavigation.BottomNavigationView
       android:id="@+id/bottomNavigation"
-      android:layout_width="0dp"
+      android:layout_width="0sp"
       android:layout_height="wrap_content"
-      android:background="@color/off_white"
       android:elevation="0sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
