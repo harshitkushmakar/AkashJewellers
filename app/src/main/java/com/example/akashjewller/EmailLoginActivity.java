@@ -2,7 +2,10 @@ package com.example.akashjewller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +33,7 @@ public class EmailLoginActivity extends AppCompatActivity {
     EditText LoginPassword;
     TextView ForgotPassword;
 
+    CheckBox showPasswordCheckBox;
     ImageView back_to_otp;
 
     // Define a constant for the admin login identifier (use a specific email or username)
@@ -52,6 +56,22 @@ public class EmailLoginActivity extends AppCompatActivity {
         ForgotPassword = findViewById(R.id.forgot_password);
         LoginPassword = findViewById(R.id.Login_password_text);
         back_to_otp = findViewById(R.id.btnBack);
+        showPasswordCheckBox = findViewById(R.id.checkbox_show_password);
+
+        showPasswordCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // Show password
+                    LoginPassword.setTransformationMethod(null);
+                } else {
+                    // Hide password
+                    LoginPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+                // Move cursor to the end
+                LoginPassword.setSelection(LoginPassword.getText().length());
+            }
+        });
 
         back_to_otp.setOnClickListener(new View.OnClickListener() {
             @Override
