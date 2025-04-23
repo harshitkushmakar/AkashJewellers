@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="100sp"
         android:id="@+id/toolbar"
+        app:title="Admin"
+        app:titleTextColor="@color/white"
         android:background="@color/Golden"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         app:popupTheme="@style/Theme.AppCompat.Light"

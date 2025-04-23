@@ -4,14 +4,9 @@
         >
         <!-- Set the background color to white -->
 
+
     </style>
-    <style name="Base.Theme.AkashJewller.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-    <style name="Base.Theme.AkashJewller.AppBarOverlay"
-        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="Base.Theme.AkashJewller.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 
 
 </resources>

@@ -32,9 +32,11 @@ public class EmailLoginActivity extends AppCompatActivity {
     EditText LoginEmail;
     EditText LoginPassword;
     TextView ForgotPassword;
-
     CheckBox showPasswordCheckBox;
     ImageView back_to_otp;
+
+
+
 
     // Define a constant for the admin login identifier (use a specific email or username)
     private static final String ADMIN_EMAIL_IDENTIFIER = "admin"; // Or "admin@yourapp.com", etc.
@@ -57,6 +59,7 @@ public class EmailLoginActivity extends AppCompatActivity {
         LoginPassword = findViewById(R.id.Login_password_text);
         back_to_otp = findViewById(R.id.btnBack);
         showPasswordCheckBox = findViewById(R.id.checkbox_show_password);
+
 
         showPasswordCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
