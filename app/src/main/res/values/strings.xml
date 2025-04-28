@@ -34,7 +34,7 @@
     <string name="forgot_password">Forgot Password ?</string>
     <string name="already_have_an_account_login">Already Have an Account? LOGIN</string>
     <string name="gold">Gold</string>
-    <string name="disclaimer_in_dashboard">*Above displayed data is for information purpose only and hence can\'t be used for legal purpose or doing any sort of transaction</string>
+    <string name="disclaimer_in_dashboard">*Above displayed data is for information purpose only and hence can\'t be used for legal purpose or doing any sort of transaction.</string>
     <string name="silver">Silver</string>
     <string name="silver_upi">Silver(RTGS)</string>
     <string name="gold_upi">Gold(RTGS)</string>
@@ -64,5 +64,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="extra">Extra</string>
+    <string name="share_screenshot">Share Screenshot</string>
 
 </resources>

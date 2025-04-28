@@ -37,46 +37,30 @@ import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 // Removed: DataSnapshot, DatabaseError, DatabaseReference, FirebaseDatabase, Query, ValueEventListener
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class LoginActivity extends AppCompatActivity {
-
-
-
     private static final String TAG = "LoginActivity"; // Tag for logging
-
-
-
     EditText EnterName;
-
     EditText EnterNumber;
-
     AppCompatButton GetOtp;
-
     ProgressBar progressBar;
-
     ImageView emailimage;
-
     FirebaseAuth mAuth;
-
     DatabaseReference mDatabase;
 
+    ImageView googleimage;
 
-
-// --- Variable to store the resend token ---
-
+    // --- Variable to store the resend token ---
     PhoneAuthProvider.ForceResendingToken resendToken;
-
-// --- Variable to store the verification ID (needed if auto-verify happens here) ---
-
+    // --- Variable to store the verification ID (needed if auto-verify happens here) ---
     String verificationId;
-
-
-
-
 
     @Override
 
@@ -98,49 +82,24 @@ public class LoginActivity extends AppCompatActivity {
 
         });
 
-
-
-// Set status bar icon color based on theme
-
+        // Set status bar icon color based on theme
 // This part looks fine, but ensure it works as expected across devices/versions.
-
 // Consider using Material Components themes for simpler status bar handling.
-
-
-
-
 // Initialize Firebase (ensure this is done only once, usually in Application class)
-
 // If you have an Application class, move initialization there.
-
 // FirebaseApp.initializeApp(this); // Can sometimes cause issues if called multiple times
-
-
-
 // Initialize App Check
-
         FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
-
         firebaseAppCheck.installAppCheckProviderFactory(
 
                 PlayIntegrityAppCheckProviderFactory.getInstance());
 
-
-
-// Initialize Firebase Auth
+        // Initialize Firebase Auth
 
         mAuth = FirebaseAuth.getInstance();
-
-
-
-// Initialize Firebase Realtime Database
-
+        // Initialize Firebase Realtime Database
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
-
-
-// Initialize Views
-
+        // Initialize Views
         EnterName = findViewById(R.id.enter_name);
 
         EnterNumber = findViewById(R.id.phoneNumber);
@@ -151,40 +110,21 @@ public class LoginActivity extends AppCompatActivity {
 
         emailimage = findViewById(R.id.email_image); // Assuming this ID exists in activity_login.xml
 
-
-
         emailimage.setOnClickListener(v -> {
-
             Intent intent = new Intent(LoginActivity.this, EmailLoginActivity.class);
-
             startActivity(intent);
-
         });
 
-
-
-
-
         GetOtp.setOnClickListener(new View.OnClickListener() {
-
             @Override
-
             public void onClick(View view) {
-
                 String name = EnterName.getText().toString().trim();
-
                 String mobileNumber = EnterNumber.getText().toString().trim();
 
-
-
                 if (name.isEmpty()) {
-
                     EnterName.setError("Name cannot be empty"); // Provide feedback
-
                     EnterName.requestFocus();
-
-// Toast.makeText(LoginActivity.this, "Please enter your Name", Toast.LENGTH_SHORT).show();
-
+                    // Toast.makeText(LoginActivity.this, "Please enter your Name", Toast.LENGTH_SHORT).show();
                     return; // Stop further execution
 
                 } else {
@@ -193,15 +133,13 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
 
-
-
                 if (mobileNumber.isEmpty()) {
 
                     EnterNumber.setError("Mobile number cannot be empty");
 
                     EnterNumber.requestFocus();
 
-// Toast.makeText(LoginActivity.this, "Enter mobile number", Toast.LENGTH_SHORT).show();
+             // Toast.makeText(LoginActivity.this, "Enter mobile number", Toast.LENGTH_SHORT).show();
 
                     return; // Stop further execution
 
@@ -210,8 +148,7 @@ public class LoginActivity extends AppCompatActivity {
                     EnterNumber.setError("Enter a valid 10-digit number");
 
                     EnterNumber.requestFocus();
-
-// Toast.makeText(LoginActivity.this, "Please enter a valid 10-digit number", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(LoginActivity.this, "Please enter a valid 10-digit number", Toast.LENGTH_SHORT).show();
 
                     return; // Stop further execution
 
@@ -222,23 +159,18 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
 
-
 // If inputs are valid, proceed
 
                 progressBar.setVisibility(View.VISIBLE);
 
                 GetOtp.setVisibility(View.INVISIBLE);
 
+                // Check if the phone number exists in the database
 
-
-// Check if the phone number exists in the database
-
-// Using "Phone" node as per your saveNewUserData method
+               // Using "Phone" node as per your saveNewUserData method
 
                 Query query = mDatabase.child("Phone").orderByChild("phone").equalTo(mobileNumber);
-
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
-
                     @Override
 
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -247,7 +179,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             Log.d(TAG, "Phone number exists, updating name.");
 
-// User with this phone number exists, update the name
+                            // User with this phone number exists, update the name
 
                             boolean updated = false;
 
@@ -259,30 +191,22 @@ public class LoginActivity extends AppCompatActivity {
 
                                             Log.d(TAG, "Name updated successfully for existing user.");
 
-// Toast.makeText(LoginActivity.this, "Name updated.", Toast.LENGTH_SHORT).show();
-
+                                          // Toast.makeText(LoginActivity.this, "Name updated.", Toast.LENGTH_SHORT).show();
                                             initiateOtpVerification(mobileNumber); // Proceed to OTP verification
 
                                         })
-
                                         .addOnFailureListener(e -> {
-
                                             progressBar.setVisibility(View.GONE);
-
                                             GetOtp.setVisibility(View.VISIBLE);
-
                                             Log.e(TAG, "Failed to update name", e);
-
                                             Toast.makeText(LoginActivity.this, "Failed to update name: " + e.getMessage(), Toast.LENGTH_SHORT).show();
 
                                         });
 
                                 updated = true;
-
                                 break; // Exit the loop after finding and attempting update on the first match
 
                             }
-
                             if (!updated) { // Should not happen if dataSnapshot.exists() is true, but good practice
 
                                 Log.w(TAG, "DataSnapshot existed but no child found to update.");
@@ -302,34 +226,19 @@ public class LoginActivity extends AppCompatActivity {
                         }
 
                     }
-
-
-
                     @Override
-
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
                         progressBar.setVisibility(View.GONE);
-
                         GetOtp.setVisibility(View.VISIBLE);
-
                         Log.e(TAG, "Database error checking phone number", databaseError.toException());
-
                         Toast.makeText(LoginActivity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
-
                 });
-
             }
-
         });
 
     } // --- End of onCreate ---
-
-
-
-
 
     private void initiateOtpVerification(String mobileNumber) {
 
@@ -339,17 +248,12 @@ public class LoginActivity extends AppCompatActivity {
 
                 new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
-
-
                     @Override
 
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential credential) {
-
-// This callback is triggered in two situations:
-
-// 1. Instant verification without needing code (rare on non-Google Play devices)
-
-// 2. Auto-retrieval of the SMS code on Google Play services devices
+                        // This callback is triggered in two situations:
+                        // 1. Instant verification without needing code (rare on non-Google Play devices)
+                        // 2. Auto-retrieval of the SMS code on Google Play services devices
 
                         Log.d(TAG, "onVerificationCompleted: Auto-verification or auto-retrieval complete.");
 
@@ -357,20 +261,14 @@ public class LoginActivity extends AppCompatActivity {
 
                         GetOtp.setVisibility(View.VISIBLE);
 
-// Store verification ID if needed, although credential is provided
-
-// verificationId = credential.getSmsCode(); // This might be null depending on flow
+                      // Store verification ID if needed, although credential is provided
+                        // verificationId = credential.getSmsCode(); // This might be null depending on flow
 
                         signInWithPhoneAuthCredential(credential); // Sign in directly
 
                     }
-
-
-
                     @Override
-
                     public void onVerificationFailed(@NonNull FirebaseException e) {
-
                         Log.e(TAG, "onVerificationFailed", e);
 
                         progressBar.setVisibility(View.GONE);
@@ -383,58 +281,33 @@ public class LoginActivity extends AppCompatActivity {
 
                                 Toast.LENGTH_LONG).show();
 
-// Log common errors: e.g., quota exceeded, invalid phone number format, network error
-
-// Consider showing more specific error messages based on e.getErrorCode()
+                            // Log common errors: e.g., quota exceeded, invalid phone number format, network error
+                        // Consider showing more specific error messages based on e.getErrorCode()
 
                     }
-
-
-
                     @Override
-
                     public void onCodeSent(@NonNull String verificationId,
-
                                            @NonNull PhoneAuthProvider.ForceResendingToken token) {
 
-// SMS sent successfully, user needs to enter the code
-
+                        // SMS sent successfully, user needs to enter the code
                         Log.d(TAG, "onCodeSent: Verification ID = " + verificationId); // Log the ID
 
                         progressBar.setVisibility(View.GONE);
 
                         GetOtp.setVisibility(View.VISIBLE);
 
-
-
-// --- STORE VERIFICATION ID AND RESEND TOKEN ---
-
+                        // --- STORE VERIFICATION ID AND RESEND TOKEN ---
                         LoginActivity.this.verificationId = verificationId;
-
                         LoginActivity.this.resendToken = token; // Store the token
-
-
-
-// --- START OTP ACTIVITY AND PASS DATA ---
-
+                        // --- START OTP ACTIVITY AND PASS DATA ---
                         Intent intent = new Intent(getApplicationContext(), OtpActivity.class);
-
                         intent.putExtra("mobile", mobileNumber);
-
                         intent.putExtra("backendOtp", verificationId); // Pass the verification ID
-
                         intent.putExtra("resendToken", token); // <-- PASS THE TOKEN
-
                         startActivity(intent);
-
                     }
-
-                };
-
-
-
-// Start the phone number verification process
-
+        };
+        // Start the phone number verification process
         try {
 
             String phoneNumberE164 = "+91" + mobileNumber; // Ensure E.164 format
@@ -463,11 +336,11 @@ public class LoginActivity extends AppCompatActivity {
 
             GetOtp.setVisibility(View.VISIBLE);
 
-            Log.e(TAG, "Error initiating OTP verification", e);
+//            Log.e(TAG, "Error initiating OTP verification", e);
 
             Toast.makeText(LoginActivity.this,
 
-                    "Error initiating OTP: " + e.getMessage(),
+                    "Too Many Attempt! try After sometime " ,
 
                     Toast.LENGTH_LONG).show();
 
@@ -475,11 +348,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
 // Method to initialize reCAPTCHA / App Check configuration (called it in onCreate)
 
 // Note: initializeRecaptchaConfig name might be outdated if only using Play Integrity
-
     private void initializeRecaptchaConfig() {
 
 // This is actually initializing App Check with Play Integrity,
@@ -491,7 +362,6 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(TAG, "Initializing App Check with Play Integrity.");
 
 
-
 // FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance(); // Already done in onCreate
 
 // firebaseAppCheck.installAppCheckProviderFactory(
@@ -499,26 +369,17 @@ public class LoginActivity extends AppCompatActivity {
 // PlayIntegrityAppCheckProviderFactory.getInstance());
 
     }
-
-
-
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-
         Log.d(TAG, "Attempting to sign in with credential.");
-
         mAuth.signInWithCredential(credential)
-
                 .addOnCompleteListener(this, task -> {
-
                     if (task.isSuccessful()) {
-
                         Log.d(TAG, "signInWithCredential successful.");
 
-// Sign in success, update UI with the signed-in user's information
+                  // Sign in success, update UI with the signed-in user's information
+                        // FirebaseUser user = task.getResult().getUser(); // Get user info if needed
 
-// FirebaseUser user = task.getResult().getUser(); // Get user info if needed
-
-                        Intent intent = new Intent(LoginActivity.this, UserDashboardActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
@@ -537,28 +398,16 @@ public class LoginActivity extends AppCompatActivity {
                                 "Authentication failed: " + Objects.toString(task.getException().getMessage(), "Unknown error"), // Handle null exception message
 
                                 Toast.LENGTH_SHORT).show();
-
-
-
-// If it's an invalid code, update UI or prompt user
-
-// if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-
-// // Invalid code entered by user
-
-// }
-
                     }
-
                 });
-
     }
-
-
     private void saveNewUserData(String name, String phone) {
         // Saving under "Phone/{uniqueId}" node
         DatabaseReference usersRef = mDatabase.child("Phone");
         String userId = usersRef.push().getKey(); // Generate a unique random ID
+        long timestampMillis = System.currentTimeMillis(); // Raw timestamp
+        String readableTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                .format(new Date(timestampMillis)); // Formatted date/time
 
         if (userId != null) {
             Log.d(TAG, "Saving new user data for ID: " + userId);
@@ -568,7 +417,8 @@ public class LoginActivity extends AppCompatActivity {
             Map<String, Object> userData = new HashMap<>();
             userData.put("name", name);
             userData.put("phone", phone);
-            userData.put("createdTimestamp", ServerValue.TIMESTAMP); // <-- Add timestamp here
+            userData.put("createdTimestamp", timestampMillis); // <-- Add timestamp here
+            userData.put("createdReadable", readableTime);
 
             // 2. Save the entire map in one operation
             newUserRef.setValue(userData)

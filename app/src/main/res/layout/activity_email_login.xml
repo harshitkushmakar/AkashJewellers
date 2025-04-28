@@ -10,7 +10,6 @@
     android:padding="28dp"
     tools:context=".EmailLoginActivity">
 
-
   <ImageButton
       android:id="@+id/btnBack"
       android:layout_width="48dp"
@@ -95,6 +94,15 @@
       android:layout_marginBottom="40dp"
       android:background="#DDDDDD" />
 
+  <CheckBox
+      android:id="@+id/checkbox_stay_signed_in"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Stay signed in"
+      android:layout_marginBottom="16dp"
+      android:textColor="#008080"
+      android:textSize="16sp" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login"
         android:layout_width="match_parent"
@@ -145,8 +153,7 @@
       android:textColor="#FFFFFF"
       android:textStyle="bold" />
 
-
-      <TextView
+  <TextView
           android:id="@+id/forgot_password"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -158,10 +165,7 @@
           android:clickable="true"
           android:focusable="true"
           android:padding="4dp">
-
       </TextView>
-
-
 </LinearLayout>
 
 

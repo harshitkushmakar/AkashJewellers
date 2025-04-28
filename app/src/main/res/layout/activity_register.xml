@@ -148,6 +148,14 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
+    <ProgressBar
+        android:id="@+id/progressbar_register"
+        android:layout_gravity="center"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:visibility="gone">
+
+    </ProgressBar>
 
 
 </LinearLayout>
