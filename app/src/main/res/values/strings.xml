@@ -66,5 +66,6 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="extra">Extra</string>
     <string name="share_screenshot">Share Screenshot</string>
+    <string name="gallery">Gallery</string>
 
 </resources>

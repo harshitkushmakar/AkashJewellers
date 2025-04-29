@@ -63,6 +63,8 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     implementation(libs.play.services)
+    implementation(libs.firebase.messaging)
+
 
 
 

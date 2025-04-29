@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -124,7 +125,11 @@ public class EmailLoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
     }
+
     /**
      * Checks SharedPreferences to see if the user previously chose to stay signed in.
      * If so, it retrieves the user type and identifier, starts the appropriate

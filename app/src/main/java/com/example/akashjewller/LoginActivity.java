@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressbarGetOtp);
 
-        emailimage = findViewById(R.id.email_image); // Assuming this ID exists in activity_login.xml
+        emailimage = findViewById(R.id.email_btn); // Assuming this ID exists in activity_login.xml
 
         emailimage.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, EmailLoginActivity.class);
