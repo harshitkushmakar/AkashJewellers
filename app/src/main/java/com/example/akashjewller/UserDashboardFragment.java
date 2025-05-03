@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.preference.PreferenceManager;
 
 import com.example.akashjewller.databinding.FragmentUserDashboardBinding; // Generated binding class
 import com.google.firebase.auth.FirebaseAuth;

@@ -8,7 +8,6 @@
     android:background="@color/white"
     tools:context=".SplashActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,34 +15,24 @@
         android:orientation="vertical">
 
         <ImageView
-
-            android:layout_width="303sp"
-            android:layout_height="399sp"
-            android:src="@drawable/akashjeweller">
-
-        </ImageView>
-
-        <ProgressBar
-            android:layout_width="32sp"
-            android:layout_height="wrap_content">
-
-        </ProgressBar>
-
-
-    </LinearLayout>
+            android:id="@+id/splash_logo"
+            android:layout_width="250dp"
+            android:layout_height="325dp"
+            android:src="@drawable/akashjeweller"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/app_name" /> <ProgressBar
+        android:id="@+id/splash_progress"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="24dp" /> </LinearLayout>
 
     <TextView
+        android:id="@+id/developer_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Developed"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:layout_marginBottom="20sp"
-        android:textSize="11sp"
-        android:textColor="#FF808080"
-        >
-
-    </TextView>
-
-
-</RelativeLayout>
+        android:layout_marginBottom="20dp"
+        android:textSize="12sp" android:textColor="#FF808080"
+        tools:text="Developed by Your Name" /> </RelativeLayout>

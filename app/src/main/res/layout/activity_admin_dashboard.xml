@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="90sp"
             android:orientation="vertical"
-            android:padding="16sp">
+            android:padding="10sp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,6 +61,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/grey"
                         android:text="Current Price: ₹"
                         android:textSize="16sp" />
 
@@ -69,6 +70,7 @@
                         android:layout_width="0sp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textColor="@color/grey"
                         android:inputType="numberDecimal"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -103,12 +105,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Current Price: ₹"
+                        android:textColor="@color/grey"
                         android:textSize="16sp" />
 
                     <EditText
                         android:id="@+id/goldRTGSPriceEditText"
                         android:layout_width="0sp"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/grey"
                         android:layout_weight="1"
                         android:inputType="numberDecimal"
                         android:textSize="18sp"
@@ -142,11 +146,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Current Price: ₹"
+                        android:textColor="@color/grey"
                         android:textSize="16sp" />
 
                     <EditText
                         android:id="@+id/silverPriceEditText"
                         android:layout_width="0sp"
+                        android:textColor="@color/grey"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:inputType="numberDecimal"
@@ -181,6 +187,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Current Price: ₹"
+                        android:textColor="@color/grey"
                         android:textSize="16sp" />
 
                     <EditText
@@ -188,6 +195,7 @@
                         android:layout_width="0sp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textColor="@color/grey"
                         android:inputType="numberDecimal"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -209,7 +217,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Last Updated: "
-                    android:textColor="#666666"
+                    android:textColor="@color/grey"
                     android:textSize="16sp" />
 
                 <TextView
@@ -217,6 +225,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
+                    android:textColor="@color/black"
                     android:background="@null" />
             </LinearLayout>
 

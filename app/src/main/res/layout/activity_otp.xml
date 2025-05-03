@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@color/Background"
     android:layout_marginTop="50dp"
     tools:context=".OtpActivity">
 
@@ -12,8 +13,8 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -91,19 +92,16 @@
                 android:textColor="#666666"
                 android:layout_marginTop="32sp" />
 
-            <LinearLayout
+            <!-- Responsive OTP Layout -->
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="16sp"
-                android:gravity="center">
+                android:layout_marginTop="16sp">
 
-                <!-- OTP Boxes -->
                 <EditText
                     android:id="@+id/otp_number_1"
-                    android:layout_width="40sp"
-                    android:layout_height="40sp"
-                    android:layout_margin="4sp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@drawable/golden_border_box"
                     android:inputType="number"
                     android:maxLength="1"
@@ -111,13 +109,18 @@
                     android:imeOptions="actionNext"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:importantForAutofill="yes" />
+                    android:importantForAutofill="yes"
+                    app:layout_constraintWidth_percent="0.13"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/otp_number_2"
+                    app:layout_constraintHorizontal_chainStyle="spread" />
 
                 <EditText
                     android:id="@+id/otp_number_2"
-                    android:layout_width="40sp"
-                    android:layout_height="40sp"
-                    android:layout_margin="4sp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@drawable/golden_border_box"
                     android:inputType="number"
                     android:maxLength="1"
@@ -125,13 +128,17 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:imeOptions="actionNext"
-                    android:importantForAutofill="yes" />
+                    android:importantForAutofill="yes"
+                    app:layout_constraintWidth_percent="0.13"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toEndOf="@+id/otp_number_1"
+                    app:layout_constraintTop_toTopOf="@+id/otp_number_1"
+                    app:layout_constraintEnd_toStartOf="@+id/otp_number_3" />
 
                 <EditText
                     android:id="@+id/otp_number_3"
-                    android:layout_width="40sp"
-                    android:layout_height="40sp"
-                    android:layout_margin="4sp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@drawable/golden_border_box"
                     android:inputType="number"
                     android:maxLength="1"
@@ -139,13 +146,17 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:imeOptions="actionNext"
-                    android:importantForAutofill="yes" />
+                    android:importantForAutofill="yes"
+                    app:layout_constraintWidth_percent="0.13"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toEndOf="@+id/otp_number_2"
+                    app:layout_constraintTop_toTopOf="@+id/otp_number_1"
+                    app:layout_constraintEnd_toStartOf="@+id/otp_number_4" />
 
                 <EditText
                     android:id="@+id/otp_number_4"
-                    android:layout_width="40sp"
-                    android:layout_height="40sp"
-                    android:layout_margin="4sp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@drawable/golden_border_box"
                     android:inputType="number"
                     android:maxLength="1"
@@ -153,13 +164,17 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:imeOptions="actionNext"
-                    android:importantForAutofill="yes" />
+                    android:importantForAutofill="yes"
+                    app:layout_constraintWidth_percent="0.13"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toEndOf="@+id/otp_number_3"
+                    app:layout_constraintTop_toTopOf="@+id/otp_number_1"
+                    app:layout_constraintEnd_toStartOf="@+id/otp_number_5" />
 
                 <EditText
                     android:id="@+id/otp_number_5"
-                    android:layout_width="40sp"
-                    android:layout_height="40sp"
-                    android:layout_margin="4sp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@drawable/golden_border_box"
                     android:inputType="number"
                     android:maxLength="1"
@@ -167,25 +182,34 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:imeOptions="actionNext"
-                    android:importantForAutofill="yes" />
+                    android:importantForAutofill="yes"
+                    app:layout_constraintWidth_percent="0.13"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toEndOf="@+id/otp_number_4"
+                    app:layout_constraintTop_toTopOf="@+id/otp_number_1"
+                    app:layout_constraintEnd_toStartOf="@+id/otp_number_6" />
 
                 <EditText
                     android:id="@+id/otp_number_6"
-                    android:layout_width="40sp"
-                    android:layout_height="40sp"
-                    android:layout_margin="4sp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@drawable/golden_border_box"
                     android:inputType="number"
                     android:maxLength="1"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="yes" />
-            </LinearLayout>
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="yes"
+                    app:layout_constraintWidth_percent="0.13"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toEndOf="@+id/otp_number_5"
+                    app:layout_constraintTop_toTopOf="@+id/otp_number_1"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="16sp">

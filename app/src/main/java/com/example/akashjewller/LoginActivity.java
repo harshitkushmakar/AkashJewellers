@@ -19,12 +19,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 // Firebase Imports (Removed Database related ones)
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException; // Keep for error checking
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -33,7 +31,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 // Removed: DataSnapshot, DatabaseError, DatabaseReference, FirebaseDatabase, Query, ValueEventListener
 
@@ -108,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressbarGetOtp);
 
-        emailimage = findViewById(R.id.email_btn); // Assuming this ID exists in activity_login.xml
+        emailimage = findViewById(R.id.email_btn);
 
         emailimage.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, EmailLoginActivity.class);
@@ -117,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
 
         GetOtp.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
                 String name = EnterName.getText().toString().trim();
                 String mobileNumber = EnterNumber.getText().toString().trim();
